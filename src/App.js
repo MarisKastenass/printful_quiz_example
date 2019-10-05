@@ -1,18 +1,34 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import "./App.css";
 import Routes from "./Routes";
 
 class App extends Component {
   state = {
-    isHomepage: true,
-    questions: false,
-    isResults: false
+    name: "",
+    testid: null,
+    results: []
+  };
+
+  addUserName = data => {
+    this.setState({ name: data });
+  };
+
+  addTestId = data => {
+    this.setState({ testid: data });
+  };
+
+  addResults = data => {
+    this.setState({ results: data });
   };
 
   render() {
     const childProps = {
-      isHomepage: this.state.isHomepage,
-      questions: this.state.questions
+      name: this.state.name,
+      testid: this.state.testid,
+      results: this.state.results,
+      addUserName: this.addUserName,
+      addTestId: this.addTestId,
+      addResults: this.addResults
     };
 
     return (
