@@ -1,3 +1,17 @@
+architecture:
+
+Homepage view:
+"./containers/Homepage"
+Test questions view:
+"./containers/Questions"
+Results view:
+"./containers/Results"
+
+Global parametrs in App.js:
+    name: "user inputs their name"
+    testid: chossen quizId
+    results: answers from quiz
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
