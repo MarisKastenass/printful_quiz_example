@@ -9,9 +9,15 @@ architecture:
 Global parametrs in App.js:
 
     name: "user inputs their name"
+<<<<<<< HEAD
 
     testid: chossen quizId
 
+=======
+    
+    testid: chossen quizId
+    
+>>>>>>> 974bf4e08855347457f580da2ea8dc35d3d22252
     results: answers from quiz
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
