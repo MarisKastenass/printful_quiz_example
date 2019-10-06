@@ -16,6 +16,7 @@ export default class Homepage extends Component {
     };
   }
 
+  // load quizzes
   componentDidMount() {
     fetch("https://printful.com/test-quiz.php?action=quizzes")
       .then(res => res.json())
@@ -27,9 +28,10 @@ export default class Homepage extends Component {
       });
   }
 
+  // start button
   start = async e => {
     e.preventDefault();
-
+    // save global parametrs
     if (this.state.name === "") {
       alert("Please enter name!");
       return;
@@ -40,6 +42,7 @@ export default class Homepage extends Component {
     }
     this.props.addUserName(this.state.name);
     this.props.addTestId(this.state.testid);
+    // go to next page
     this.props.history.push("/questions");
   };
 

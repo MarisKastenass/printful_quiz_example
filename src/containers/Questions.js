@@ -19,6 +19,7 @@ export default class Questions extends Component {
     };
   }
 
+  //load questions
   componentDidMount() {
     var api =
       "https://printful.com/test-quiz.php?action=questions&quizId=" +
@@ -30,6 +31,7 @@ export default class Questions extends Component {
       });
   }
 
+  // load answers from "nr" question
   saveQuestions(items, nr) {
     if (+items.length > nr) {
       var api =
@@ -52,25 +54,33 @@ export default class Questions extends Component {
     }
   }
 
+  // next button
   nextButton = async e => {
     e.preventDefault();
+    // go to next question
     var vquestionsid = +this.state.questionsid + 1;
+    // calculate and save progresbar
     var p = +(+vquestionsid / +this.state.items.length) * 100;
     this.setState({
       progress: p,
       disablednext: true
     });
+    // if exist more questions, then load next
     if (+vquestionsid < +this.state.items.length) {
       this.saveQuestions(this.state.items, vquestionsid);
     } else {
+      // if no more questions, then save results and go to next page
       this.props.addResults(this.state.results);
       this.props.history.push("/results");
     }
   };
 
+  // answer button
   saveAnswer(e) {
+    // change button colors
     var color = this.setColorBlue(this.state.answers);
     color[e] = "red";
+    // save added result
     var r = this.state.results;
     r[this.state.questionsid] = e;
     this.setState({
@@ -80,6 +90,7 @@ export default class Questions extends Component {
     });
   }
 
+  // return all collors to blue
   setColorBlue(data) {
     var color = [];
     for (var i = 0; i < data.length; i++) {

@@ -12,10 +12,12 @@ export default class Results extends Component {
     };
   }
 
+  // load results
   componentDidMount() {
     var api =
       "https://printful.com/test-quiz.php?action=submit&quizId=" +
       this.props.testid;
+    // add answers
     var r = this.props.results;
     for (var i = 0; i < r.length; i++) {
       api = api + "&answers[]=" + r[i];

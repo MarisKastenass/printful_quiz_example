@@ -9,14 +9,17 @@ class App extends Component {
     results: []
   };
 
+  // to save username for results
   addUserName = data => {
     this.setState({ name: data });
   };
 
+  // choissen Test id
   addTestId = data => {
     this.setState({ testid: data });
   };
 
+  // save results
   addResults = data => {
     this.setState({ results: data });
   };
